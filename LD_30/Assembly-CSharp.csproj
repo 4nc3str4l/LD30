@@ -46,8 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\GameController.cs" />
+     <Compile Include="Assets\Filter.cs" />
+     <Compile Include="Assets\Ressources\Scripts\GameController.cs" />
+     <Compile Include="Assets\Ressources\Scripts\LeaverDoor.cs" />
+     <Compile Include="Assets\Ressources\Scripts\Level.cs" />
+     <Compile Include="Assets\Ressources\Scripts\Lever.cs" />
      <Compile Include="Assets\Ressources\Scripts\Player.cs" />
+     <Compile Include="Assets\Ressources\Scripts\Splash.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

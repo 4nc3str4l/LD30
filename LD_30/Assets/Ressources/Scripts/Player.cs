@@ -12,18 +12,54 @@ public class Player : MonoBehaviour {
 
     private float jumpRate, nextJump;
 
+    public GameObject scripts,appearAnimation;
+
+    public AudioClip appearSound;
+
+    public bool theOne;
+
+    public bool apeared;
+
+
     Animator anim;
-	void Start () {
+    void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
         this.anim = this.GetComponentInChildren<Animator>();
         this.jumpRate = 1f;
         this.nextJump = 0f;
-	}
+        this.theOne = false;
+        this.apeared = true;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        this.updateMove();
-        this.updateSpells();
+        
+        if (!Application.loadedLevelName.Equals("splash"))
+        {
+            if (!this.apeared) this.makeApearAnimation();
+            if (GetComponent<SpriteRenderer>().enabled == false) GetComponent<SpriteRenderer>().enabled = true;
+            if (GetComponent<Rigidbody2D>().isKinematic == true) GetComponent<Rigidbody2D>().isKinematic = false;
+            if (this.scripts.GetComponentInChildren<GameController>().getTraveled() == true && theOne == false) Destroy(this.gameObject);
+            this.updateMove();
+            this.updateSpells();
+
+            Debug.Log(this.scripts.GetComponentInChildren<GameController>().getTraveled().ToString());
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Rigidbody2D>().isKinematic = true;
+        }
 	}
+
+    public void makeApearAnimation()
+    {
+        AudioSource.PlayClipAtPoint(this.appearSound, this.transform.position);
+        GameObject appear = (GameObject) Instantiate(this.appearAnimation, this.transform.position, this.transform.rotation);
+        Destroy(appear, 0.333f);
+        this.apeared = true;
+    }
 
     void updateMove()
     {
@@ -55,7 +91,17 @@ public class Player : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-           
+            if (this.scripts.GetComponentInChildren<GameController>().UseGem())
+            {
+
+                Vector3 pos = this.scripts.GetComponentInChildren<GameController>().getSpawnPosition();
+                Debug.Log("new position " + pos.ToString());
+                this.transform.position = pos;
+                this.theOne = true;
+                this.apeared = false;
+                this.scripts.GetComponentInChildren<GameController>().changeWorld(this.scripts.GetComponentInChildren<GameController>().getActualWorld());
+            
+            }
         }
     }
 }
