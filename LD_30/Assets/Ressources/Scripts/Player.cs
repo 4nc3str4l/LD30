@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         this.updateMove();
+        this.updateSpells();
 	}
 
     void updateMove()
@@ -48,5 +49,13 @@ public class Player : MonoBehaviour {
         if (moving) this.anim.SetInteger("State", 1);
         else this.anim.SetInteger("State", 0);
 
+    }
+
+    void updateSpells()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+           
+        }
     }
 }
