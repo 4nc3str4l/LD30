@@ -7,6 +7,8 @@ TextureImporter:
     21300004: Spritesheet_1
     21300006: Spritesheet_2
     21300008: Spritesheet_3
+    21300010: Spritesheet_4
+    21300012: Spritesheet_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -84,7 +86,27 @@ TextureImporter:
         x: 190
         y: 1929
         width: 45
-        height: 62
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 1925
+        width: 61
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 1899
+        width: 39
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -46,13 +46,21 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Filter.cs" />
+     <Compile Include="Assets\Ressources\Scripts\Airshock.cs" />
+     <Compile Include="Assets\Ressources\Scripts\Filter.cs" />
+     <Compile Include="Assets\Ressources\Scripts\Fireball.cs" />
      <Compile Include="Assets\Ressources\Scripts\GameController.cs" />
+     <Compile Include="Assets\Ressources\Scripts\Lava.cs" />
      <Compile Include="Assets\Ressources\Scripts\LeaverDoor.cs" />
      <Compile Include="Assets\Ressources\Scripts\Level.cs" />
      <Compile Include="Assets\Ressources\Scripts\Lever.cs" />
      <Compile Include="Assets\Ressources\Scripts\Player.cs" />
+     <Compile Include="Assets\Ressources\Scripts\Projectil.cs" />
      <Compile Include="Assets\Ressources\Scripts\Splash.cs" />
+     <Compile Include="Assets\Ressources\Scripts\TeleportGem.cs" />
+     <Compile Include="Assets\Ressources\Scripts\Turret.cs" />
+     <Compile Include="Assets\Ressources\Scripts\goal.cs" />
+     <Compile Include="Assets\Ressources\Scripts\movementObstacle.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
