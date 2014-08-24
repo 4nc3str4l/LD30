@@ -10,9 +10,17 @@ public class Splash : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonUp("Fire1") || Input.GetKeyUp(KeyCode.Return))
+
+        if (Input.GetKeyUp(KeyCode.Return) || Input.GetButtonUp("Fire1"))
         {
-            Application.LoadLevel("Level1_1");
+            Application.LoadLevel("Splash");
+        }
+
+        if (GameObject.Find("_SCRIPTS") != null && GameObject.Find("Player") != null)
+        {
+            Destroy(GameObject.Find("_SCRIPTS").gameObject);
+            Destroy(GameObject.Find("Player").gameObject);
+
         }
 	}
 }

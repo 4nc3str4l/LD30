@@ -53,14 +53,22 @@
      <Compile Include="Assets\Ressources\Scripts\Lava.cs" />
      <Compile Include="Assets\Ressources\Scripts\LeaverDoor.cs" />
      <Compile Include="Assets\Ressources\Scripts\Level.cs" />
+     <Compile Include="Assets\Ressources\Scripts\Levels.cs" />
      <Compile Include="Assets\Ressources\Scripts\Lever.cs" />
+     <Compile Include="Assets\Ressources\Scripts\Miniature.cs" />
      <Compile Include="Assets\Ressources\Scripts\Player.cs" />
      <Compile Include="Assets\Ressources\Scripts\Projectil.cs" />
      <Compile Include="Assets\Ressources\Scripts\Splash.cs" />
      <Compile Include="Assets\Ressources\Scripts\TeleportGem.cs" />
      <Compile Include="Assets\Ressources\Scripts\Turret.cs" />
+     <Compile Include="Assets\Ressources\Scripts\aboutButton.cs" />
+     <Compile Include="Assets\Ressources\Scripts\aboutScript.cs" />
+     <Compile Include="Assets\Ressources\Scripts\destructibleObject.cs" />
+     <Compile Include="Assets\Ressources\Scripts\final.cs" />
      <Compile Include="Assets\Ressources\Scripts\goal.cs" />
+     <Compile Include="Assets\Ressources\Scripts\mageStaff.cs" />
      <Compile Include="Assets\Ressources\Scripts\movementObstacle.cs" />
+     <Compile Include="Assets\Ressources\Scripts\startButton.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

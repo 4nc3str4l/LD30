@@ -14,7 +14,7 @@ public class Player : MonoBehaviour {
 
     public GameObject scripts,appearAnimation;
 
-    public AudioClip appearSound, airshockSound, hurt,dead, fireballSound;
+    public AudioClip appearSound, airshockSound, hurt, dead, fireballSound,take, tink;
 
     public bool theOne;
 
@@ -169,12 +169,12 @@ public class Player : MonoBehaviour {
                  {
 
                      clone.transform.localScale = new Vector3(-0.7f, 0.7f, 0.7f);
-                     clone.AddForce(Vector3.right * 200);
+                     clone.AddForce(Vector3.right * 500);
                  }
 
                  if (!this.right)
                  {
-                     clone.AddForce(-Vector3.right * 400);
+                     clone.AddForce(-Vector3.right * 500);
                  }
             }   
         }
@@ -185,5 +185,24 @@ public class Player : MonoBehaviour {
     public void SetPosition(Vector3 newPosition)
     {
         this.transform.position = newPosition;
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+
+        if (col.collider.name.Equals("AirShock") && this.scripts.GetComponentInChildren<GameController>().getActualWorld() == 3)
+        {
+            AudioSource.PlayClipAtPoint(this.take, this.transform.position);
+        }
+
+        if (col.collider.name.Equals("AirShock") && this.scripts.GetComponentInChildren<GameController>().getActualWorld() != 3)
+        {
+            AudioSource.PlayClipAtPoint(this.tink, this.transform.position);
+        }
+        else if (col.collider.name.Equals("Fireball"))
+        {
+
+            AudioSource.PlayClipAtPoint(this.take, this.transform.position);
+        }
     }
 }

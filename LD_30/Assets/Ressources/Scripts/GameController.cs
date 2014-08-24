@@ -55,7 +55,14 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-            
+        Debug.Log(actualWorld.ToString());
+
+        if (this.actualWorld > 6) this.activateFireball();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.LoadLevel("EntryPoint");
+        }
 	}
 
 
@@ -96,6 +103,28 @@ public class GameController : MonoBehaviour {
             case 7:
                 if (Application.loadedLevelName.Equals("Level8_1")) Application.LoadLevel("Level8_2");
                 else Application.LoadLevel("Level8_1");
+                break;
+            case 8:
+                if (Application.loadedLevelName.Equals("Level9_1")) Application.LoadLevel("Level9_2");
+                else Application.LoadLevel("Level9_1");
+                break;
+            case 9:
+                if (Application.loadedLevelName.Equals("Level10_1")) Application.LoadLevel("Level10_2");
+                else Application.LoadLevel("Level10_1");
+                break;
+            case 10:
+                if (Application.loadedLevelName.Equals("Level11_1")) Application.LoadLevel("Level11_2");
+                else Application.LoadLevel("Level11_1");
+                break;
+            case 11:
+                if (Application.loadedLevelName.Equals("Level12_1")) Application.LoadLevel("Level12_2");
+                else Application.LoadLevel("Level12_1");
+                break;
+            case 12:
+                if (Application.loadedLevelName.Equals("Level13_1")) Application.LoadLevel("Level13_2");
+                else Application.LoadLevel("Level13_1");
+                break;
+            default:
                 break;
                 
         }
@@ -216,6 +245,11 @@ public class GameController : MonoBehaviour {
         levels.Add(new Level(list, "Level 6", new Vector3(-7.259693f, -4.44933f, 0f)));
         levels.Add(new Level(list, "Level 7", new Vector3(-7.259693f, -4.44933f, 0f)));
         levels.Add(new Level(list, "Level 8", new Vector3(-7.259693f, -4.44933f, 0f)));
+        levels.Add(new Level(list, "Level 9", new Vector3(-7.259693f, -4.44933f, 0f)));
+        levels.Add(new Level(list, "Level 10", new Vector3(-7.259693f, -4.44933f, 0f)));
+        levels.Add(new Level(list, "Level 11", new Vector3(-7.259693f, -4.44933f, 0f)));
+        levels.Add(new Level(list, "Level 12", new Vector3(-7.259693f, -4.44933f, 0f)));
+        levels.Add(new Level(list, "Level 13", new Vector3(-7.259693f, -4.44933f, 0f)));
     }
 
     public  Vector3 getSpawnPosition()
@@ -232,7 +266,7 @@ public class GameController : MonoBehaviour {
     {
         GameObject.Find("Player").GetComponentInChildren<Player>().playHurt = true;
         if (this.getActualWorld() > 2) this.airshocks = 2;
-        //this.playerLives--;
+        this.playerLives--;
         this.addGem();
         Vector3 pos = Vector3.zero;
 
@@ -313,6 +347,57 @@ public class GameController : MonoBehaviour {
                 gameOver();
             }
         }
+        if (this.actualWorld == 8)
+        {
+            pos = new Vector3(-6.7f, 2.0554f, 0);
+            GameObject.Find("Player").GetComponentInChildren<Player>().SetPosition(pos);
+            if (playerLives > 0) Application.LoadLevel("Level9_1");
+            else
+            {
+                gameOver();
+            }
+        }
+        if (this.actualWorld == 9)
+        {
+            pos = new Vector3(-6.7f, 2.0554f, 0);
+            GameObject.Find("Player").GetComponentInChildren<Player>().SetPosition(pos);
+            if (playerLives > 0) Application.LoadLevel("Level10_1");
+            else
+            {
+                gameOver();
+            }
+        }
+        if (this.actualWorld == 10)
+        {
+            pos = new Vector3(-6.7f, 2.0554f, 0);
+            GameObject.Find("Player").GetComponentInChildren<Player>().SetPosition(pos);
+            if (playerLives > 0) Application.LoadLevel("Level11_1");
+            else
+            {
+                gameOver();
+            }
+        }
+        if (this.actualWorld == 11)
+        {
+            pos = new Vector3(-6.7f, 2.0554f, 0);
+            GameObject.Find("Player").GetComponentInChildren<Player>().SetPosition(pos);
+            if (playerLives > 0) Application.LoadLevel("Level12_1");
+            else
+            {
+                gameOver();
+            }
+        }
+
+        if (this.actualWorld == 12)
+        {
+            pos = new Vector3(-6.7f, 2.0554f, 0);
+            GameObject.Find("Player").GetComponentInChildren<Player>().SetPosition(pos);
+            if (playerLives > 0) Application.LoadLevel("Level13_1");
+            else
+            {
+                gameOver();
+            }
+        }
 
 
     }
@@ -339,5 +424,12 @@ public class GameController : MonoBehaviour {
     {
         return this.fireballs;
     }
+
+    public void desactivateFirebal()
+    {
+        this.fireballs = false;
+    }
+
+
 
 }

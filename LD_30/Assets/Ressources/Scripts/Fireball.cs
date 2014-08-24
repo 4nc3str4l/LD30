@@ -25,7 +25,7 @@ public class Fireball : MonoBehaviour {
             GameObject.Find("_SCRIPTS").GetComponentInChildren<GameController>().activateFireball();
             Destroy(this.gameObject);
         }
-        else if (col.collider.name.Equals("turret") || col.collider.name.Equals("Projectil(Clone)"))
+        else if (col.collider.name.Equals("turret") || col.collider.name.Equals("Projectil(Clone)") || col.collider.name.Equals("Lea_door"))
         {
             AudioSource.PlayClipAtPoint(this.explosionSound, this.transform.position);
             GameObject explosion = (GameObject)Instantiate(this.explosion, this.transform.position, this.transform.rotation);
