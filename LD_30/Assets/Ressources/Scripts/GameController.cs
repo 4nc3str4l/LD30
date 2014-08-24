@@ -93,6 +93,10 @@ public class GameController : MonoBehaviour {
                 if (Application.loadedLevelName.Equals("Level7_1")) Application.LoadLevel("Level7_2");
                 else Application.LoadLevel("Level7_1");
                 break;
+            case 7:
+                if (Application.loadedLevelName.Equals("Level8_1")) Application.LoadLevel("Level8_2");
+                else Application.LoadLevel("Level8_1");
+                break;
                 
         }
 
@@ -211,6 +215,7 @@ public class GameController : MonoBehaviour {
         levels.Add(new Level(list, "Level 5", new Vector3(-7.259693f, -4.44933f, 0f)));
         levels.Add(new Level(list, "Level 6", new Vector3(-7.259693f, -4.44933f, 0f)));
         levels.Add(new Level(list, "Level 7", new Vector3(-7.259693f, -4.44933f, 0f)));
+        levels.Add(new Level(list, "Level 8", new Vector3(-7.259693f, -4.44933f, 0f)));
     }
 
     public  Vector3 getSpawnPosition()
@@ -292,6 +297,17 @@ public class GameController : MonoBehaviour {
             pos = new Vector3(-6.7f, 2.0554f, 0);
             GameObject.Find("Player").GetComponentInChildren<Player>().SetPosition(pos);
             if (playerLives > 0) Application.LoadLevel("Level7_1");
+            else
+            {
+                gameOver();
+            }
+        }
+
+        if (this.actualWorld == 7)
+        {
+            pos = new Vector3(-6.7f, 2.0554f, 0);
+            GameObject.Find("Player").GetComponentInChildren<Player>().SetPosition(pos);
+            if (playerLives > 0) Application.LoadLevel("Level8_1");
             else
             {
                 gameOver();
