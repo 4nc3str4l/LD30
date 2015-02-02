@@ -130,7 +130,7 @@ public class Player : MonoBehaviour {
 			if(this.rigidbody2D.velocity.x > -3)
 				this.rigidbody2D.AddRelativeForce(-Vector2.right * this.speed * 5);
 			this.moving = true;
-			this.right = true;
+			this.right = false;
 		}
 		if (moving) {
 			this.anim.SetInteger ("State", 1);
