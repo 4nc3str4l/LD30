@@ -23,9 +23,8 @@ public class Turret : MonoBehaviour {
 	void Update () {
         if (Time.time > this.nextShot)
         {
-            Rigidbody2D clone = (Rigidbody2D)Instantiate(this.projectil, GameObject.Find("cannon2").transform.position, this.transform.rotation);
-            
-            if(this.left)clone.AddForce(-Vector3.right * Random.Range(100,250));
+            Rigidbody2D clone = (Rigidbody2D)Instantiate(this.projectil, this.gameObject.transform.Find("cannon2").transform.position, this.transform.rotation);
+            if(this.left)clone.AddForce((GameObject.Find("Player").gameObject.transform.position - this.transform.position) * Random.Range(10,25));
             else clone.AddForce(Vector3.right * Random.Range(100,250));
             this.nextShot = Time.time + shotRate;
             AudioSource.PlayClipAtPoint(this.shot, this.transform.position);
